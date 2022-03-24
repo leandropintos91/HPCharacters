@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:id="@+id/drawerLayout">
+    android:id="@+id/drawerLayout"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,9 +21,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:navigationIcon="@drawable/ic_hamburger_icon"
-                app:navigationIconTint="@color/white"
+                app:navigationIconTint="@color/default_text"
                 app:title="HP characters"
-                app:titleTextColor="@color/white"/>
+                app:titleTextColor="@color/default_text"
+                android:background="@color/hp_black"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
