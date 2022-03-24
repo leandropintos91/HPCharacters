@@ -6,6 +6,14 @@
 
     <fragment
         android:id="@+id/main_fragment"
-        android:name="com.lrp.hpcharacters.MainFragment"/>
+        android:name="com.lrp.hpcharacters.MainFragment">
+        <action
+            android:id="@+id/navigate_to_about_fragment"
+            app:destination="@id/about_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/about_fragment"
+        android:name="com.lrp.hpcharacters.AboutFragment"/>
 
 </navigation>

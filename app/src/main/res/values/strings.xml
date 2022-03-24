@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">HPCharacters</string>
-    <string name="navigation_view_header_title">The Harry Potter App</string>
+    <string name="the_harry_potter_app">The Harry Potter App</string>
+
+    <string name="navigation_view_header_title">@string/the_harry_potter_app</string>
+    <string name="about_title">@string/the_harry_potter_app</string>
     <string name="about_option_text">About</string>
+
+    <string name="about_description">In this app you will find all the Harry Potter Saga characters. You can filter by role, i.e. student or hogwarts staff. Also you can search a character with the name. Finally, you can mark characters as favourites to have a quick access.</string>
+    <string name="credits_title">Credits</string>
+    <string name="credits_description">This App uses the HP-API (https://hp-api.herokuapp.com/). The author is https://github.com/bethfraser</string>
 </resources>
