@@ -9,4 +9,5 @@
     <string name="about_description">In this app you will find all the Harry Potter Saga characters. You can filter by role, i.e. student or hogwarts staff. Also you can search a character with the name. Finally, you can mark characters as favourites to have a quick access.</string>
     <string name="credits_title">Credits</string>
     <string name="credits_description">This App uses the HP-API (https://hp-api.herokuapp.com/). The author is https://github.com/bethfraser</string>
+    <string name="change_theme">Change theme</string>
 </resources>

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_back_arrow"
             app:navigationIconTint="@color/default_text"
-            app:title="HP characters"
+            app:title="About"
             app:titleTextColor="@color/default_text"
             android:background="@color/hp_black"/>
 

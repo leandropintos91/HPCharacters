@@ -23,8 +23,7 @@
                 app:navigationIcon="@drawable/ic_hamburger_icon"
                 app:navigationIconTint="@color/default_text"
                 app:title="HP characters"
-                app:titleTextColor="@color/default_text"
-                android:background="@color/hp_black"/>
+                app:menu="@menu/toolbar_menu"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
