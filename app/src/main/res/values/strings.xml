@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HPCharacters</string>
+    <string name="navigation_view_header_title">The Harry Potter App</string>
+    <string name="about_option_text">About</string>
 </resources>
