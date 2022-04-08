@@ -1,4 +1,4 @@
-package com.lrp.hpcharacters
+package com.lrp.hpcharacters.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
