@@ -10,10 +10,7 @@ import kotlinx.coroutines.*
 
 class MainFragmentViewModel(
     private val hpCharactersService : HpCharactersService
-    ) : ViewModel() {
-
-    private var viewModelJob = Job()
-    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
+    ) : BaseViewModel() {
 
     private val _results = MutableLiveData<List<HpCharacter>>(emptyList())
     val results : LiveData<List<HpCharacter>> = _results
