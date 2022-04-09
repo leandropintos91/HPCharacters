@@ -28,10 +28,11 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <TextView
-            android:id="@+id/result_text_view"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/characters_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp" />
 
     </LinearLayout>
 

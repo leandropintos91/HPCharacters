@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.lrp.hpcharacters.R
 import com.lrp.hpcharacters.databinding.FragmentMainBinding
@@ -14,15 +15,25 @@ class MainFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
 
     private lateinit var binding : FragmentMainBinding
     private lateinit var viewModel: MainFragmentViewModel
+    private lateinit var charactersAdapter : CharactersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentMainBinding.inflate(inflater, container, false)
+        setupRecyclerView()
         return binding.root
+    }
+
+    private fun setupRecyclerView() {
+        context?.let { itContext ->
+            charactersAdapter = CharactersAdapter(itContext)
+            binding.charactersRecyclerView.layoutManager = LinearLayoutManager(itContext, LinearLayoutManager.VERTICAL, false)
+            binding.charactersRecyclerView.adapter = charactersAdapter
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +51,7 @@ class MainFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
             true
         }
         viewModel.results.observe(this, {
-            binding.resultTextView.text = it.toString()
+            charactersAdapter.updateData(it)
         })
         viewModel.getMarsRealEstateProperties()
     }

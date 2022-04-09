@@ -7,11 +7,11 @@ class Wand {
 
     @SerializedName("wood")
     @Expose
-    private val wood : String = ""
+    val wood : String = ""
 
     @SerializedName("core")
     @Expose
-    private val core : String = ""
+    val core : String = ""
 
 //    @SerializedName("length")
 //    @Expose
