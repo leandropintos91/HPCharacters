@@ -44,7 +44,7 @@ class MainFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = MainFragmentViewModelFactory().create(MainFragmentViewModel::class.java)
+        viewModel = MainFragmentViewModelFactory(context!!).create(MainFragmentViewModel::class.java)
         binding.toolbar.setNavigationOnClickListener {
             binding.drawerLayout.open()
         }

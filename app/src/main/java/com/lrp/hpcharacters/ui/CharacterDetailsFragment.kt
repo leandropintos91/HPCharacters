@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.lrp.hpcharacters.R
 import com.lrp.hpcharacters.databinding.FragmentCharacterDetailBinding
 import com.lrp.hpcharacters.model.HpCharacter
@@ -26,6 +27,9 @@ class CharacterDetailsFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
         val character = arguments?.getSerializable("CHARACTER") // TODO quit hardcoded code
         bind(character as HpCharacter)
     }
@@ -43,7 +47,7 @@ class CharacterDetailsFragment: Fragment() {
         }
     }
 
-    public class Contract {
+    class Contract {
         companion object {
             val CHARACTER = "CHARACTER"
 

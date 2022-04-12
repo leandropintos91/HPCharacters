@@ -1,14 +1,23 @@
 package com.lrp.hpcharacters.service
 
+import android.content.Context
 import com.lrp.hpcharacters.model.HpCharacter
+import com.lrp.hpcharacters.repository.CharactersDatabase
 import com.lrp.hpcharacters.repository.HpApi
-import kotlinx.coroutines.Deferred
-import retrofit2.await
 
-class HpCharactersService {
+class HpCharactersService(context: Context) {
 
-    fun getAllCharacters() : Deferred<List<HpCharacter>> {
-        return HpApi.retrofitService.getAllCharacters()
+    val charactersDatabase = CharactersDatabase.getInstance(context)
+
+    suspend fun getAllCharacters() : List<HpCharacter> {
+        val characterList = HpApi.retrofitService.getAllCharacters().await()
+        charactersDatabase.charactersDao.deleteCharacters()
+        charactersDatabase.charactersDao.insertCharacters(characterList)
+        val gotCharacters = charactersDatabase.charactersDao.getAllCharacters()
+        gotCharacters?.let {
+            return gotCharacters
+        }
+
     }
 
 }

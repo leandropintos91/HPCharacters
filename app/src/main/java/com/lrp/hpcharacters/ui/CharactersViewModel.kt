@@ -1,5 +1,6 @@
 package com.lrp.hpcharacters.ui
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,16 +18,16 @@ class MainFragmentViewModel(
 
     fun getMarsRealEstateProperties() {
         coroutineScope.launch {
-            _results.value = hpCharactersService.getAllCharacters().await()
+            _results.value = hpCharactersService.getAllCharacters()
         }
     }
 
 }
 
-class MainFragmentViewModelFactory : ViewModelProvider.Factory {
+class MainFragmentViewModelFactory(val context: Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainFragmentViewModel::class.java)) {
-            return MainFragmentViewModel(HpCharactersService()) as T
+            return MainFragmentViewModel(HpCharactersService(context)) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
