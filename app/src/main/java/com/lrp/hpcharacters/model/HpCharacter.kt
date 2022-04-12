@@ -2,8 +2,9 @@ package com.lrp.hpcharacters.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class HpCharacter {
+class HpCharacter : Serializable {
     @SerializedName("name")
     @Expose
     var name: String = ""

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.lrp.hpcharacters.R
 import com.lrp.hpcharacters.databinding.FragmentMainBinding
+import com.lrp.hpcharacters.model.HpCharacter
 
 
 class MainFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener {
@@ -30,7 +31,12 @@ class MainFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
 
     private fun setupRecyclerView() {
         context?.let { itContext ->
-            charactersAdapter = CharactersAdapter(itContext)
+            charactersAdapter = CharactersAdapter(itContext) { character: HpCharacter ->
+                findNavController().navigate(
+                    R.id.navigate_to_character_details_fragment,
+                    CharacterDetailsFragment.Contract.createBundle(character)
+                )
+            }
             binding.charactersRecyclerView.layoutManager = LinearLayoutManager(itContext, LinearLayoutManager.VERTICAL, false)
             binding.charactersRecyclerView.adapter = charactersAdapter
         }

@@ -10,10 +10,18 @@
         <action
             android:id="@+id/navigate_to_about_fragment"
             app:destination="@id/about_fragment" />
+
+        <action
+            android:id="@+id/navigate_to_character_details_fragment"
+            app:destination="@id/character_details_fragment" />
     </fragment>
 
     <fragment
         android:id="@+id/about_fragment"
         android:name="com.lrp.hpcharacters.ui.AboutFragment"/>
+
+    <fragment
+        android:id="@+id/character_details_fragment"
+        android:name="com.lrp.hpcharacters.ui.CharacterDetailsFragment"/>
 
 </navigation>

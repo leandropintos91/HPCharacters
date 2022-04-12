@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lrp.hpcharacters.databinding.LayoutCharacterBinding
 import com.lrp.hpcharacters.model.HpCharacter
 
-class CharactersAdapter(private val context: Context) : RecyclerView.Adapter<CharactersAdapter.CharacterViewHolder>() {
+class CharactersAdapter(private val context: Context, val clickHandler: (HpCharacter) -> Unit) : RecyclerView.Adapter<CharactersAdapter.CharacterViewHolder>() {
 
     var charactersList = emptyList<HpCharacter>()
 
     class CharacterViewHolder(private val characterView: CharacterView): RecyclerView.ViewHolder(characterView.binding.root) {
 
-        fun bind(character: HpCharacter) {
+        fun bind(character: HpCharacter, clickHandler: (HpCharacter) -> Unit) {
             characterView.setData(character)
+            characterView.binding.root.setOnClickListener { clickHandler(character) }
         }
     }
 
@@ -24,7 +25,7 @@ class CharactersAdapter(private val context: Context) : RecyclerView.Adapter<Cha
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(charactersList[position])
+        holder.bind(charactersList[position], clickHandler)
     }
 
     override fun getItemCount() = charactersList.size
